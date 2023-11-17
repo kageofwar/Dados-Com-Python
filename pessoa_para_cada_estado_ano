@@ -1,0 +1,13 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+dados = pd.read_csv('BolsaFamiliaPessoas.csv', delimiter=';')
+
+for index, row in dados.iterrows():
+    plt.plot(row.index[3:], row.values[3:], label=row['Sigla'])
+
+plt.xlabel('Ano')
+plt.ylabel('Número de Pessoas Beneficiadas')
+plt.title('Bolsa Família - Número de Pessoas Beneficiadas por Estado (2012-2019)')
+plt.legend()
+plt.show()
